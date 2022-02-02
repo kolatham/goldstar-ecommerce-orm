@@ -16,18 +16,30 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Category: {
+    product_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    ProductTag: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
+      validate: {isDecimal: true},
     },
-    Tag: {
-      type: DataTypes.STRING,
+    stock: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 10,
+      validate: {isNumeric: true},
     },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
+        model: 'category',
+        key: 'id',
+      },
+    }
   },
   {
     sequelize,

@@ -13,15 +13,7 @@ Tag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Product: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    ProductTag: {
+    tag_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },

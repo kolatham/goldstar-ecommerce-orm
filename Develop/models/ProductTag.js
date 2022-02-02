@@ -13,17 +13,23 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Category: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    product_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
+        model: 'product',
+        key: 'id',
+      },
     },
-    Product: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Tag: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    tag_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
+        model: 'tag',
+        key: 'id',
+      },
     },
   },
   {
